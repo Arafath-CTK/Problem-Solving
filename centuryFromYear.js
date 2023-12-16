@@ -5,3 +5,8 @@
 // Task
 // Given a year, return the century it is in.
 
+function century(year) {
+  let century = year / 100;
+  return century === Math.floor(century)? Math.floor(century) : Math.ceil(century);
+}
+console.log(century(17401));
