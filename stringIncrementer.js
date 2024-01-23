@@ -5,24 +5,23 @@
 // Examples:
 
 // foo -> foo1
-
 // foobar23 -> foobar24
-
 // foo0042 -> foo0043
-
 // foo9 -> foo10
-
 // foo099 -> foo100
 
 // Attention: If the number has leading zeros the amount of digits should be considered.
 
 function incrementString(strng) {
-  let number =  strng.match(/\d+/g)
-  return Number(number)+1 //not completed...
+  const match = strng.match(/\d+$/);
+  return match
+    ? strng.slice(0, -match[0].length) +
+        (Number(match[0]) + 1).toString().padStart(match[0].length, "0")
+    : strng + "1";
 }
 
 // Test
-// console.log(incrementString("foo"));
+console.log(incrementString("foo"));
 console.log(incrementString("foobar23"));
 console.log(incrementString("foo0042"));
 console.log(incrementString("foo9"));
