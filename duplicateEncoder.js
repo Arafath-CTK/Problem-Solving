@@ -7,12 +7,17 @@
 // "(( @"     =>  "))(("
 
 function duplicateEncode(word) {
-  let letters = word.split("");
-  for (let i = 0; i < letters.length; i++) {
-    for (let j = 0; j < letters.length; j++) {
-        
-    }
+  let letters = word.toLowerCase().split("");
+  let charCount = {};
+
+  for (const char of letters) {
+    charCount[char] = (charCount[char] || 0) + 1;
   }
+
+  let result = letters
+    .map((char) => (charCount[char] > 1 ? ")" : "("))
+    .join("");
+  return result;
 }
 
 // Test
