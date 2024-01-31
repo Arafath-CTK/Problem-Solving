@@ -14,8 +14,8 @@
 // ""                                        =>  false
 
 function generateHashtag(str) {
-  return str.split("").filter((e) => e !== " ").length <
-    140 && str.split("").filter((e) => e !== " ").length > 0
+  return str.split("").filter((e) => e !== " ").length < 140 &&
+    str.split("").filter((e) => e !== " ").length > 0
     ? `#${str
         .trim()
         .split(" ")
@@ -35,4 +35,3 @@ console.log(generateHashtag("    Hello     World   "));
 console.log(generateHashtag("code" + " ".repeat(140) + "wars"));
 console.log(generateHashtag(" ".repeat(200)));
 console.log(generateHashtag(""));
-
