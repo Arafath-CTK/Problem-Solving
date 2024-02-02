@@ -108,4 +108,3 @@ console.log(eight(dividedBy(three())));
 console.log(seven(times(five())));
 console.log(four(plus(nine())));
 console.log(eight(minus(three())));
-
