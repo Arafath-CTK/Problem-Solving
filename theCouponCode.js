@@ -14,24 +14,19 @@
 // checkCoupon("123", "123", "July 9, 2015", "July 2, 2015")  ===  false
 
 function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
-  let months = {
-    "January": 1,
-    "February": 2,
-    "March": 3,
-    "April": 4,
-    "May": 5,
-    "June": 6,
-    "July": 7,
-    "August": 8,
-    "September": 9,
-    "October": 10,
-    "November": 11,
-    "December": 12,
-  };
+  if (enteredCode !== correctCode) {
+    return false;
+  }
 
-  return months["January"]
+  current = new Date(currentDate);
+  expiry = new Date(expirationDate);
+
+  return current <= expiry;
 }
 
 // Test
 console.log(checkCoupon("123", "123", "September 5, 2014", "October 1, 2014"));
 console.log(checkCoupon("123a", "123", "September 5, 2014", "October 1, 2014"));
+
+console.log(checkCoupon("123", "123", "July 9, 2015", "July 9, 2015"));
+console.log(checkCoupon("123", "123", "July 9, 2015", "July 2, 2015"));
